@@ -93,7 +93,9 @@ const translations = {
       close: 'Close'
     },
     lightbox: {
-      alt: 'Enlarged image'
+      alt: 'Enlarged image',
+      prev: 'Previous image',
+      next: 'Next image'
     }
   },
   ar: {
@@ -190,7 +192,9 @@ const translations = {
       close: 'إغلاق'
     },
     lightbox: {
-      alt: 'صورة مكبرة'
+      alt: 'صورة مكبرة',
+      prev: 'الصورة السابقة',
+      next: 'الصورة التالية'
     }
   },
   it: {
@@ -287,7 +291,9 @@ const translations = {
       close: 'Chiudi'
     },
     lightbox: {
-      alt: 'Immagine ingrandita'
+      alt: 'Immagine ingrandita',
+      prev: 'Immagine precedente',
+      next: 'Immagine successiva'
     }
   }
 };
@@ -343,6 +349,7 @@ function setLanguage(lang) {
     renderReviews();
   }
   if (typeof refreshOpenModal === 'function') refreshOpenModal();
+  if (typeof refreshLightboxLabels === 'function') refreshLightboxLabels();
 }
 
 function initI18n() {

@@ -272,7 +272,11 @@
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
-    <img src="" alt="">
+    <div class="lightbox__backdrop" id="lightbox-backdrop"></div>
+    <button type="button" class="lightbox__nav lightbox__prev" id="lightbox-prev" aria-label="Previous image">‹</button>
+    <img class="lightbox__img" src="" alt="">
+    <button type="button" class="lightbox__nav lightbox__next" id="lightbox-next" aria-label="Next image">›</button>
+    <span class="lightbox__counter" id="lightbox-counter"></span>
   </div>
 
   <button class="scroll-top" id="scroll-top" aria-label="Back to top">↑</button>

@@ -1066,6 +1066,18 @@ button {
   object-fit: cover;
 }
 
+.modal__cover--clickable {
+  cursor: zoom-in;
+}
+
+.modal__cover--clickable img {
+  transition: opacity 0.25s ease;
+}
+
+.modal__cover--clickable:active img {
+  opacity: 0.85;
+}
+
 .modal__body {
   padding: 2rem;
 }
@@ -1188,7 +1200,7 @@ button {
   border-radius: var(--radius-sm);
   aspect-ratio: 16 / 10;
   object-fit: cover;
-  cursor: pointer;
+  cursor: zoom-in;
   transition: var(--transition);
   border: 1px solid var(--border);
 }
@@ -1196,6 +1208,11 @@ button {
 .modal__gallery img:hover {
   transform: scale(1.03);
   border-color: var(--accent);
+  opacity: 0.92;
+}
+
+.modal__gallery img:active {
+  opacity: 0.85;
 }
 
 .modal__video-title {
@@ -1328,7 +1345,6 @@ button {
   position: fixed;
   inset: 0;
   z-index: 3000;
-  background: rgba(0, 0, 0, 0.95);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1336,7 +1352,6 @@ button {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s, visibility 0.3s;
-  cursor: zoom-out;
 }
 
 .lightbox.open {
@@ -1344,11 +1359,81 @@ button {
   visibility: visible;
 }
 
-.lightbox img {
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  cursor: zoom-out;
+}
+
+.lightbox__img {
+  position: relative;
+  z-index: 1;
   max-width: 90vw;
   max-height: 85vh;
   border-radius: var(--radius-sm);
   object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+.lightbox__nav {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-size: 2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.lightbox__nav:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: rgba(220, 38, 38, 0.25);
+  color: var(--accent-light);
+}
+
+.lightbox__nav:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.lightbox__nav[hidden],
+.lightbox__counter[hidden] {
+  display: none;
+}
+
+.lightbox__prev {
+  inset-inline-start: 1rem;
+}
+
+.lightbox__next {
+  inset-inline-end: 1rem;
+}
+
+.lightbox__counter {
+  position: absolute;
+  z-index: 2;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.35rem 0.85rem;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 /* ===== Responsive ===== */
@@ -1424,12 +1509,38 @@ button {
     --nav-height: 64px;
   }
 
+  body {
+    font-size: 1.05rem;
+  }
+
   .container {
     width: min(1200px, 94%);
   }
 
   .section {
-    padding: 3.5rem 0;
+    padding: 2.75rem 0;
+  }
+
+  #about.section {
+    padding-top: 2rem;
+  }
+
+  .section__header {
+    margin-bottom: 2rem;
+  }
+
+  .section__label {
+    font-size: 0.88rem;
+    letter-spacing: 2px;
+  }
+
+  .section__title {
+    font-size: clamp(1.85rem, 6.5vw, 2.35rem);
+  }
+
+  .section__subtitle {
+    font-size: 1.05rem;
+    line-height: 1.65;
   }
 
   .nav__right {
@@ -1437,12 +1548,32 @@ button {
   }
 
   .nav__logo-text {
-    font-size: 0.95rem;
+    font-size: 1rem;
     letter-spacing: 2px;
+  }
+
+  .brand-mark {
+    width: 42px;
+    height: 24px;
+  }
+
+  .nav__link {
+    font-size: 1.1rem;
+  }
+
+  .lang-btn {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.85rem;
   }
 
   .nav__toggle {
     display: flex;
+    padding: 0.35rem;
+  }
+
+  .nav__toggle span {
+    width: 26px;
+    height: 2.5px;
   }
 
   .nav__links {
@@ -1469,21 +1600,34 @@ button {
 
   .hero {
     min-height: auto;
-    padding-top: calc(var(--nav-height) + 2rem);
-    padding-bottom: 3rem;
+    padding-top: calc(var(--nav-height) + 1.25rem);
+    padding-bottom: 1.5rem;
+  }
+
+  .hero__badge {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1.1rem;
+  }
+
+  .hero__badge-dot {
+    width: 10px;
+    height: 10px;
   }
 
   .hero__title {
-    font-size: clamp(2rem, 9vw, 2.75rem);
+    font-size: clamp(2.15rem, 10vw, 3rem);
+    margin-bottom: 1rem;
   }
 
   .hero__subtitle {
-    font-size: clamp(1.25rem, 5vw, 1.75rem);
+    font-size: clamp(1.35rem, 5.5vw, 1.9rem);
   }
 
   .hero__desc {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
   }
 
   .hero__actions {
@@ -1494,6 +1638,47 @@ button {
   .hero__actions .btn {
     justify-content: center;
     width: 100%;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 0.95rem 1.85rem;
+  }
+
+  .about__text p {
+    font-size: 1.08rem;
+    line-height: 1.75;
+  }
+
+  .skill-tag {
+    font-size: 0.92rem;
+    padding: 0.55rem 1.05rem;
+  }
+
+  .lang-level__badge {
+    font-size: 0.82rem;
+  }
+
+  .stat-card__number {
+    font-size: 2.25rem;
+  }
+
+  .stat-card__label {
+    font-size: 0.95rem;
+  }
+
+  .service-card__icon {
+    font-size: 2.35rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .service-card__title {
+    font-size: 1.08rem;
+  }
+
+  .service-card__desc {
+    font-size: 1rem;
+    line-height: 1.65;
   }
 
   .projects__grid {
@@ -1518,16 +1703,30 @@ button {
     padding: 1.25rem;
   }
 
-  .stat-card__number {
-    font-size: 2rem;
-  }
-
   .project-card__body {
     padding: 1rem 1.25rem 1.25rem;
   }
 
   .project-card__title {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
+  }
+
+  .project-card__desc {
+    font-size: 0.98rem;
+    -webkit-line-clamp: 3;
+  }
+
+  .project-card__tag {
+    font-size: 0.82rem;
+    padding: 0.25rem 0.7rem;
+  }
+
+  .project-card__view {
+    font-size: 0.95rem;
+  }
+
+  .review-card__text {
+    font-size: 1rem;
   }
 
   .project-card:hover {
@@ -1558,6 +1757,34 @@ button {
     width: 100%;
   }
 
+  .lightbox {
+    padding: 1rem;
+  }
+
+  .lightbox__nav {
+    width: 44px;
+    height: 44px;
+    font-size: 1.75rem;
+  }
+
+  .lightbox__prev {
+    inset-inline-start: 0.5rem;
+  }
+
+  .lightbox__next {
+    inset-inline-end: 0.5rem;
+  }
+
+  .lightbox__img {
+    max-width: 94vw;
+    max-height: 78vh;
+  }
+
+  .lightbox__counter {
+    font-size: 0.95rem;
+    bottom: 1rem;
+  }
+
   .modal {
     padding: 0.75rem;
     align-items: flex-end;
@@ -1573,12 +1800,13 @@ button {
   }
 
   .modal__title {
-    font-size: 1.35rem;
+    font-size: 1.45rem;
     padding-inline-end: 2.5rem;
   }
 
   .modal__desc {
-    font-size: 0.95rem;
+    font-size: 1.02rem;
+    line-height: 1.7;
     margin-bottom: 1.5rem;
   }
 
@@ -1599,9 +1827,9 @@ button {
   .scroll-top {
     bottom: 1.25rem;
     inset-inline-end: 1.25rem;
-    width: 40px;
-    height: 40px;
-    font-size: 1.1rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
   }
 }
 
@@ -1611,7 +1839,15 @@ button {
   }
 
   .section {
-    padding: 3rem 0;
+    padding: 2.5rem 0;
+  }
+
+  #about.section {
+    padding-top: 1.5rem;
+  }
+
+  .hero {
+    padding-bottom: 1.25rem;
   }
 
   .about__stats {
@@ -1638,16 +1874,26 @@ button {
   }
 
   .lang-btn {
-    padding: 0.3rem 0.5rem;
-    font-size: 0.7rem;
+    padding: 0.38rem 0.62rem;
+    font-size: 0.82rem;
   }
 
   .service-card {
-    padding: 1.25rem;
+    padding: 1.35rem;
+  }
+
+  .service-card__icon {
+    font-size: 2.5rem;
   }
 
   .review-card {
-    padding: 1.25rem;
+    padding: 1.35rem;
+  }
+
+  .lightbox__nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.6rem;
   }
 }
 

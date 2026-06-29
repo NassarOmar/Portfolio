@@ -1,6 +1,8 @@
 let projects = [];
 let reviews = [];
 let openModalId = null;
+let lightboxImages = [];
+let lightboxIndex = 0;
 async function loadReviews() {
   try {
     const res = await fetch('data/reviews.json');
@@ -128,6 +130,21 @@ function renderProjects() {
   });
 }
 
+function getProjectImages(project) {
+  const images = [assetUrl(project.cover)];
+  (project.gallery || []).forEach(img => images.push(assetUrl(img)));
+  return images;
+}
+
+function bindLightboxTriggers(container, images) {
+  container.querySelectorAll('[data-lightbox-index]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openLightbox(images, parseInt(el.dataset.lightboxIndex, 10));
+    });
+  });
+}
+
 function openModal(id) {
   const project = projects.find(p => p.id === id);
   if (!project) return;
@@ -136,10 +153,11 @@ function openModal(id) {
   const modal = document.getElementById('project-modal');
   const body = document.getElementById('modal-body');
   const desc = localized(project.description);
+  const images = getProjectImages(project);
 
   body.innerHTML = `
-    <div class="modal__cover">
-      <img src="${assetUrl(project.cover)}" alt="${project.title}">
+    <div class="modal__cover${images.length ? ' modal__cover--clickable' : ''}">
+      <img src="${assetUrl(project.cover)}" alt="${project.title}" data-lightbox-index="0">
     </div>
     <div class="modal__body">
       <h2 class="modal__title">${project.title}</h2>
@@ -160,7 +178,7 @@ function openModal(id) {
         <h3 class="modal__gallery-title">${t('projects.gallery')}</h3>
         <div class="modal__gallery">
           ${project.gallery.map((img, i) => `
-            <img src="${assetUrl(img)}" alt="${project.title} - ${i + 1}" data-lightbox>
+            <img src="${assetUrl(img)}" alt="${project.title} - ${i + 1}" data-lightbox-index="${i + 1}">
           `).join('')}
         </div>
       ` : ''}
@@ -178,12 +196,7 @@ function openModal(id) {
     </div>
   `;
 
-  body.querySelectorAll('[data-lightbox]').forEach(img => {
-    img.addEventListener('click', (e) => {
-      e.stopPropagation();
-      openLightbox(img.src);
-    });
-  });
+  bindLightboxTriggers(body, images);
 
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -192,7 +205,7 @@ function openModal(id) {
 function refreshOpenModal() {
   if (openModalId) openModal(openModalId);
   document.getElementById('modal-close').setAttribute('aria-label', t('modal.close'));
-  document.querySelector('#lightbox img').alt = t('lightbox.alt');
+  refreshLightboxLabels();
 }
 
 function closeModal() {
@@ -204,15 +217,52 @@ function closeModal() {
   if (iframe) iframe.src = iframe.src;
 }
 
-function openLightbox(src) {
+function refreshLightboxLabels() {
   const lb = document.getElementById('lightbox');
-  lb.querySelector('img').src = src;
-  lb.querySelector('img').alt = t('lightbox.alt');
-  lb.classList.add('open');
+  lb.querySelector('.lightbox__img').alt = t('lightbox.alt');
+  lb.querySelector('.lightbox__prev').setAttribute('aria-label', t('lightbox.prev'));
+  lb.querySelector('.lightbox__next').setAttribute('aria-label', t('lightbox.next'));
+}
+
+function updateLightboxView() {
+  const lb = document.getElementById('lightbox');
+  const img = lb.querySelector('.lightbox__img');
+  const counter = lb.querySelector('.lightbox__counter');
+  const prev = lb.querySelector('.lightbox__prev');
+  const next = lb.querySelector('.lightbox__next');
+  const hasMultiple = lightboxImages.length > 1;
+
+  img.src = lightboxImages[lightboxIndex];
+  img.alt = t('lightbox.alt');
+  prev.hidden = !hasMultiple;
+  next.hidden = !hasMultiple;
+  counter.hidden = !hasMultiple;
+  prev.disabled = lightboxIndex === 0;
+  next.disabled = lightboxIndex === lightboxImages.length - 1;
+
+  if (hasMultiple) {
+    counter.textContent = `${lightboxIndex + 1} / ${lightboxImages.length}`;
+  }
+}
+
+function openLightbox(images, startIndex = 0) {
+  lightboxImages = images;
+  lightboxIndex = startIndex;
+  refreshLightboxLabels();
+  updateLightboxView();
+  document.getElementById('lightbox').classList.add('open');
 }
 
 function closeLightbox() {
   document.getElementById('lightbox').classList.remove('open');
+  lightboxImages = [];
+  lightboxIndex = 0;
+}
+
+function lightboxStep(delta) {
+  if (lightboxImages.length <= 1) return;
+  lightboxIndex = Math.max(0, Math.min(lightboxImages.length - 1, lightboxIndex + delta));
+  updateLightboxView();
 }
 
 function initNav() {
@@ -360,12 +410,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('modal-close').addEventListener('click', closeModal);
   document.getElementById('modal-backdrop').addEventListener('click', closeModal);
-  document.getElementById('lightbox').addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-backdrop').addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-prev').addEventListener('click', (e) => {
+    e.stopPropagation();
+    lightboxStep(-1);
+  });
+  document.getElementById('lightbox-next').addEventListener('click', (e) => {
+    e.stopPropagation();
+    lightboxStep(1);
+  });
+  refreshLightboxLabels();
 
   document.addEventListener('keydown', (e) => {
+    const lb = document.getElementById('lightbox');
+    const lightboxOpen = lb.classList.contains('open');
+
+    if (lightboxOpen && e.key === 'ArrowLeft') {
+      e.preventDefault();
+      lightboxStep(-1);
+      return;
+    }
+    if (lightboxOpen && e.key === 'ArrowRight') {
+      e.preventDefault();
+      lightboxStep(1);
+      return;
+    }
     if (e.key === 'Escape') {
+      if (lightboxOpen) {
+        closeLightbox();
+        return;
+      }
       closeModal();
-      closeLightbox();
     }
   });
 });
