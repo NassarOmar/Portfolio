@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta name="description" content="Portfolio of Omar Nassar — Unity game developer">
+  <title>Omar Nassar | Game Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="lang-latin">
+
+  <div class="bg-grid"></div>
+  <div class="bg-sigil" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1"></div>
+  <div class="bg-glow bg-glow--2"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#" class="nav__logo">
+        <svg class="brand-mark" viewBox="0 0 72 40" aria-hidden="true">
+          <g class="brand-mark__glyph">
+            <path class="brand-mark__z" pathLength="1" d="M6 6 L34 6 L6 34 L34 34" fill="none" stroke="#dc2626" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path class="brand-mark__x" pathLength="1" d="M44 6 L66 34" fill="none" stroke="#dc2626" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path class="brand-mark__x" pathLength="1" d="M66 6 L44 34" fill="none" stroke="#dc2626" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+        </svg>
+        <span class="nav__logo-text">NASSAR</span>
+      </a>
+
+      <div class="nav__right">
+        <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="#hero" class="nav__link active" data-i18n="nav.home">Home</a></li>
+          <li><a href="#about" class="nav__link" data-i18n="nav.about">About</a></li>
+          <li><a href="#services" class="nav__link" data-i18n="nav.services">Services</a></li>
+          <li><a href="#projects" class="nav__link" data-i18n="nav.projects">Work</a></li>
+          <li><a href="#reviews" class="nav__link" data-i18n="nav.reviews">Reviews</a></li>
+          <li><a href="#contact" class="nav__link" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="ar">AR</button>
+          <button class="lang-btn" data-lang="it">IT</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero__content">
+        <div class="hero__badge">
+          <span class="hero__badge-dot"></span>
+          <span data-i18n="hero.badge">Available for work</span>
+        </div>
+        <h1 class="hero__title">
+          <span data-i18n="hero.title">Omar Nassar</span><br>
+          <span class="hero__subtitle" data-i18n="hero.subtitle">Game Developer</span>
+        </h1>
+        <p class="hero__desc" data-i18n="hero.desc">
+          I craft immersive gaming experiences with Unity — from 2D platformers to expansive 3D worlds.
+        </p>
+        <div class="hero__actions">
+          <a href="#projects" class="btn btn--primary" data-i18n="hero.ctaProjects">View my work</a>
+          <a href="#contact" class="btn btn--outline" data-i18n="hero.ctaContact">Get in touch</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brand sigil: geometric zigzag + cross (indirect ZX reference) -->
+    <div class="hero__visual" aria-hidden="true">
+      <div class="sigil">
+        <div class="sigil__ring sigil__ring--1"></div>
+        <div class="sigil__ring sigil__ring--2"></div>
+        <div class="sigil__ring sigil__ring--3"></div>
+        <svg class="sigil__icon" viewBox="0 0 160 80">
+          <g class="sigil__glyphs">
+            <path class="sigil__z" pathLength="1" d="M10 10 L70 10 L10 70 L70 70" fill="none" stroke="#dc2626" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path class="sigil__x" pathLength="1" d="M90 10 L150 70" fill="none" stroke="#dc2626" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path class="sigil__x" pathLength="1" d="M150 10 L90 70" fill="none" stroke="#dc2626" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+        </svg>
+        <div class="sigil__orbit"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section__header reveal">
+        <p class="section__label" data-i18n="about.label">About Me</p>
+        <h2 class="section__title" data-i18n="about.title">About</h2>
+        <p class="section__subtitle" data-i18n="about.subtitle">Passionate about game development</p>
+      </div>
+      <div class="about__grid">
+        <div class="about__text reveal">
+          <p data-i18n="about.p1"></p>
+          <p data-i18n="about.p2"></p>
+          <p data-i18n="about.p3"></p>
+          <div class="about__skills">
+            <span class="skill-tag">Unity Engine</span>
+            <span class="skill-tag">C#</span>
+            <span class="skill-tag">URP / HDRP</span>
+            <span class="skill-tag">AR Foundation</span>
+            <span class="skill-tag">Firebase</span>
+            <span class="skill-tag">Photon</span>
+            <span class="skill-tag">Game Design</span>
+            <span class="skill-tag">QA Testing</span>
+            <span class="skill-tag">Google Play</span>
+            <span class="skill-tag">Unity Ads</span>
+          </div>
+          <div class="about__languages reveal">
+            <h3 class="about__languages-title" data-i18n="about.languagesTitle">Languages</h3>
+            <div class="lang-levels">
+              <div class="lang-level">
+                <span class="lang-level__name" data-i18n="about.langAr">Arabic</span>
+                <span class="lang-level__badge" data-i18n="about.langArLevel">Native</span>
+              </div>
+              <div class="lang-level">
+                <span class="lang-level__name" data-i18n="about.langEn">English</span>
+                <span class="lang-level__badge" data-i18n="about.langEnLevel">B2</span>
+              </div>
+              <div class="lang-level">
+                <span class="lang-level__name" data-i18n="about.langIt">Italian</span>
+                <span class="lang-level__badge" data-i18n="about.langItLevel">B2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about__stats reveal">
+          <div class="stat-card">
+            <div class="stat-card__number" data-count="10">0</div>
+            <div class="stat-card__label" data-i18n="about.statProjects">Projects completed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__number" data-count="6">0</div>
+            <div class="stat-card__label" data-i18n="about.statYears">Years of experience</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__number" data-count="8">0</div>
+            <div class="stat-card__label" data-i18n="about.statClients">Client projects delivered</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__number" data-count="6">0</div>
+            <div class="stat-card__label" data-i18n="about.statReviews">5-star reviews</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section section--services" id="services">
+    <div class="container">
+      <div class="section__header reveal">
+        <p class="section__label" data-i18n="services.label">Services</p>
+        <h2 class="section__title" data-i18n="services.title">What I Offer</h2>
+        <p class="section__subtitle" data-i18n="services.subtitle">End-to-end game development solutions</p>
+      </div>
+      <div class="services__grid">
+        <div class="service-card reveal">
+          <span class="service-card__icon">🎮</span>
+          <h3 class="service-card__title" data-i18n="services.s1title">Full Game Development</h3>
+          <p class="service-card__desc" data-i18n="services.s1desc">Building games from scratch with Unity for mobile and PC.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-card__icon">🔄</span>
+          <h3 class="service-card__title" data-i18n="services.s2title">Reskin & Improvements</h3>
+          <p class="service-card__desc" data-i18n="services.s2desc">Professional reskins, quality upgrades, and feature additions.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-card__icon">📱</span>
+          <h3 class="service-card__title" data-i18n="services.s3title">Publishing & Marketing</h3>
+          <p class="service-card__desc" data-i18n="services.s3desc">Google Play publishing with 10+ published titles experience.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-card__icon">💰</span>
+          <h3 class="service-card__title" data-i18n="services.s4title">Ads Integration</h3>
+          <p class="service-card__desc" data-i18n="services.s4desc">Unity Ads, AdMob, and ironSource setup and optimization.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-card__icon">🎯</span>
+          <h3 class="service-card__title" data-i18n="services.s5title">Game Design & QA</h3>
+          <p class="service-card__desc" data-i18n="services.s5desc">HP-certified game design, testing, and gameplay balancing.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-card__icon">📦</span>
+          <h3 class="service-card__title" data-i18n="services.s6title">Licensed Assets</h3>
+          <p class="service-card__desc" data-i18n="services.s6desc">$3,800+ asset library available to boost quality and cut costs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section__header reveal">
+        <p class="section__label" data-i18n="projects.label">Portfolio</p>
+        <h2 class="section__title" data-i18n="projects.title">My Work</h2>
+        <p class="section__subtitle" data-i18n="projects.subtitle">A selection of projects</p>
+      </div>
+      <div class="projects__grid" id="projects-grid"></div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section section--reviews" id="reviews">
+    <div class="container">
+      <div class="section__header reveal">
+        <p class="section__label" data-i18n="reviews.label">Testimonials</p>
+        <h2 class="section__title" data-i18n="reviews.title">Client Reviews</h2>
+        <p class="section__subtitle" data-i18n="reviews.subtitle">What clients say about working with me</p>
+      </div>
+      <div class="reviews__grid" id="reviews-grid"></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section__header reveal">
+        <p class="section__label" data-i18n="contact.label">Contact</p>
+        <h2 class="section__title" data-i18n="contact.title">Get in Touch</h2>
+      </div>
+      <div class="contact__card reveal">
+        <p data-i18n="contact.text">Have a project or game idea?</p>
+        <div class="contact__links">
+          <a href="https://mostaql.com/u/Omar2468" target="_blank" rel="noopener" class="btn btn--primary" data-i18n="contact.mostaql">Hire on Mostaql</a>
+          <a href="mailto:tlttthnwy@gmail.com" class="btn btn--outline" data-i18n="contact.email">Email</a>
+          <!-- GitHub hidden until profile is ready
+          <a href="https://github.com" target="_blank" rel="noopener" class="btn btn--outline" data-i18n="contact.github">GitHub</a>
+          -->
+          <a href="https://www.linkedin.com/in/omar-nassar-a2005518b/" target="_blank" rel="noopener" class="btn btn--outline" data-i18n="contact.linkedin">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <svg class="brand-mark brand-mark--sm" viewBox="0 0 72 40" aria-hidden="true">
+        <path d="M6 6 L34 6 L6 34 L34 34" fill="none" stroke="#dc2626" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M44 6 L66 34" fill="none" stroke="#dc2626" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M66 6 L44 34" fill="none" stroke="#dc2626" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <p data-i18n="footer.text">Crafted with passion — © 2026 Omar Nassar</p>
+    </div>
+  </footer>
+
+  <!-- Project Modal -->
+  <div class="modal" id="project-modal">
+    <div class="modal__backdrop" id="modal-backdrop"></div>
+    <div class="modal__content">
+      <button class="modal__close" id="modal-close" aria-label="Close">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="">
+  </div>
+
+  <button class="scroll-top" id="scroll-top" aria-label="Back to top">↑</button>
+
+  <script src="js/projects-data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

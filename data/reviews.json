@@ -1,0 +1,77 @@
+[
+  {
+    "id": "taghreed",
+    "url": "https://mostaql.com/u/Omar2468/reviews/9880188",
+    "rating": 5,
+    "text": {
+      "ar": "رائع ومتعاون وشااطر",
+      "en": "Excellent, cooperative, and highly skilled.",
+      "it": "Eccellente, collaborativo e molto competente."
+    },
+    "client": {
+      "ar": "تغريد ع.",
+      "en": "Taghreed A.",
+      "it": "Taghreed A."
+    }
+  },
+  {
+    "id": "hashem",
+    "url": "https://mostaql.com/u/Omar2468/reviews/9039458",
+    "rating": 5,
+    "text": {
+      "ar": "ماشاء الله الانسان محترم ويعرف في شغله. طلبت عمل لعبة دفاع القصر وقام بالعمل كما ذكرت. وفوق هذا عمل لي تعديلات كل مرة أطلب منه.",
+      "en": "A respectful professional who truly knows his craft. I requested a castle defense game and he delivered exactly as described — plus revisions every time I asked.",
+      "it": "Un professionista rispettoso che conosce davvero il suo lavoro. Ho richiesto un gioco di difesa del castello e ha consegnato esattamente come promesso, con revisioni ogni volta che le ho chieste."
+    },
+    "client": {
+      "ar": "هاشم ع.",
+      "en": "Hashem A.",
+      "it": "Hashem A."
+    }
+  },
+  {
+    "id": "hamza",
+    "url": "https://mostaql.com/u/Omar2468/reviews/8520620",
+    "rating": 5,
+    "text": {
+      "ar": "عمر مطور رائع وتم انجاز العمل معه كما هو مطلوب وسهولة في التواصل وتعديل الملاحظات مع اقتراح مستمر ونصائح لتطوير المشروع بشكل افضل، كانت تجربة جميلة في العمل مع واتمني ان اعمل معه في المستقبل في مشاريع اخرى",
+      "en": "Omar is a great developer. The work was completed as required, communication was easy, and he handled feedback with continuous suggestions to improve the project. A wonderful experience — I hope to work with him again.",
+      "it": "Omar è un ottimo sviluppatore. Il lavoro è stato completato come richiesto, la comunicazione è stata facile e ha gestito i feedback con suggerimenti continui per migliorare il progetto. Un'esperienza splendida — spero di collaborare di nuovo."
+    },
+    "client": {
+      "ar": "Hamza A.",
+      "en": "Hamza A.",
+      "it": "Hamza A."
+    }
+  },
+  {
+    "id": "nada",
+    "url": "https://mostaql.com/project/928112-unity-developer-%D9%84%D8%AA%D8%AD%D8%B3%D9%8A%D9%86-%D9%84%D8%B9%D8%A8%D8%A9?deal_id=7901453",
+    "rating": 5,
+    "text": {
+      "ar": "تعاملت مع الكثير في منصة مستقل ،، لكن يبقى هذا الإنسان مختلف باخلاقه وأسلوبه و احترافيته ومرونته وصبره وتميزه و يستحق اكثر من 5 نجوم و أتشرف بان يكون هذا الأستاذ الفاضل شريك استراتيجي بمشروعي",
+      "en": "I've worked with many on Mostaql, but this person stands out for his ethics, professionalism, flexibility, patience, and excellence. He deserves more than 5 stars — I'd be honored to have him as a strategic partner.",
+      "it": "Ho lavorato con molti su Mostaql, ma questa persona si distingue per etica, professionalità, flessibilità, pazienza ed eccellenza. Merita più di 5 stelle — sarei onorata di averlo come partner strategico."
+    },
+    "client": {
+      "ar": "ندا ا.",
+      "en": "Nada A.",
+      "it": "Nada A."
+    }
+  },
+  {
+    "id": "nedo",
+    "url": "https://mostaql.com/project/867491-%D9%84%D8%B9%D8%A8%D8%A9-%D8%B3%D8%A8%D8%A7%D9%82-%D9%85%D8%AB%D9%84-%D8%B3%D8%A7%D8%A8%D9%88%D9%8A?deal_id=7232595",
+    "rating": 5,
+    "text": {
+      "ar": "فنان بمعني الكلمة وأكثر من متعاون. شهاده احاسب عليها. يساعد بقدر الإمكان ويحقق احلامك بدون تترد",
+      "en": "A true artist and more than cooperative. A testimonial I stand by. He helps as much as he can and makes your dreams happen without hesitation.",
+      "it": "Un vero artista e più che collaborativo. Una testimonianza di cui mi fido. Aiuta quanto può e realizza i tuoi sogni senza esitazione."
+    },
+    "client": {
+      "ar": "Nedo B.",
+      "en": "Nedo B.",
+      "it": "Nedo B."
+    }
+  }
+]
