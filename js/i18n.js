@@ -60,14 +60,14 @@ const translations = {
     reviews: {
       label: 'Testimonials',
       title: 'Client Reviews',
-      subtitle: 'What clients say about working with me on Mostaql',
+      subtitle: 'What clients say about working with me',
       viewOnMostaql: 'View on Mostaql',
       stars: '5 out of 5'
     },
     projects: {
       label: 'Portfolio',
       title: 'My Work',
-      subtitle: '10 published projects from my Mostaql portfolio',
+      subtitle: 'Top published projects',
       viewDetails: 'View details →',
       completed: 'Completed',
       skills: 'Skills used',
@@ -159,14 +159,14 @@ const translations = {
     reviews: {
       label: 'Testimonials',
       title: 'آراء العملاء',
-      subtitle: 'ماذا يقول العملاء عن تجربة العمل معي على مستقل',
+      subtitle: 'ماذا يقول العملاء عن تجربة العمل معي  ',
       viewOnMostaql: 'عرض على مستقل',
       stars: '5 من 5'
     },
     projects: {
       label: 'Portfolio',
       title: 'أعمالي',
-      subtitle: '10 مشاريع من معرض أعمالي على مستقل',
+      subtitle: ' مشاريع من معرض أعمالي  ',
       viewDetails: '← عرض التفاصيل',
       completed: 'تاريخ الإنجاز',
       skills: 'المهارات المستخدمة',
@@ -258,14 +258,14 @@ const translations = {
     reviews: {
       label: 'Testimonials',
       title: 'Recensioni dei clienti',
-      subtitle: 'Cosa dicono i clienti della collaborazione con me su Mostaql',
+      subtitle: 'Cosa dicono i clienti della collaborazione con me',
       viewOnMostaql: 'Vedi su Mostaql',
       stars: '5 su 5'
     },
     projects: {
       label: 'Portfolio',
       title: 'I miei lavori',
-      subtitle: '10 progetti dal mio portfolio su Mostaql',
+      subtitle: 'Top progetti dal mio portfolio',
       viewDetails: 'Vedi dettagli →',
       completed: 'Completato',
       skills: 'Competenze utilizzate',
