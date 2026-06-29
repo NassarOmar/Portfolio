@@ -401,6 +401,7 @@ button {
   border-radius: 50px;
   font-size: 0.95rem;
   font-weight: 600;
+  cursor: pointer;
   transition: var(--transition);
 }
 
@@ -1229,7 +1230,7 @@ button {
   max-width: 600px;
   margin-inline: auto;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .contact__card::before {
@@ -1253,6 +1254,58 @@ button {
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+.contact-email {
+  position: relative;
+}
+
+.contact-email__tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  padding: 0.4rem 0.85rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-sm);
+  color: var(--accent-light);
+  font-size: 0.82rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.contact-email__tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--accent-border);
+}
+
+.contact-email:hover .contact-email__tooltip,
+.contact-email:focus-visible .contact-email__tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.contact-email.copied {
+  border-color: var(--accent);
+  color: var(--accent-light);
+  background: var(--accent-subtle);
+}
+
+.contact-email.copied .contact-email__tooltip {
+  opacity: 0;
+  visibility: hidden;
 }
 
 /* ===== Footer ===== */

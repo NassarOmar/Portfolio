@@ -307,11 +307,53 @@ function initScrollTop() {
   });
 }
 
+const CONTACT_EMAIL = 'tlttthnwy@gmail.com';
+
+async function copyContactEmail() {
+  try {
+    await navigator.clipboard.writeText(CONTACT_EMAIL);
+    return true;
+  } catch {
+    const ta = document.createElement('textarea');
+    ta.value = CONTACT_EMAIL;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    const ok = document.execCommand('copy');
+    document.body.removeChild(ta);
+    return ok;
+  }
+}
+
+function initContactEmail() {
+  const btn = document.getElementById('contact-email');
+  if (!btn) return;
+
+  const label = btn.querySelector('.contact-email__label');
+  let resetTimer;
+
+  btn.addEventListener('click', async () => {
+    const copied = await copyContactEmail();
+    if (!copied) return;
+
+    clearTimeout(resetTimer);
+    btn.classList.add('copied');
+    label.textContent = t('contact.copied');
+
+    resetTimer = setTimeout(() => {
+      btn.classList.remove('copied');
+      label.textContent = t('contact.email');
+    }, 2000);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initI18n();
   initNav();
   initCounters();
   initScrollTop();
+  initContactEmail();
   observeReveal();
   loadProjects();
   loadReviews();

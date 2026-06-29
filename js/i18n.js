@@ -81,6 +81,7 @@ const translations = {
       title: 'Get in Touch',
       text: 'Have a project or game idea? I would love to hear from you!',
       email: 'Email',
+      copied: 'Copied!',
       mostaql: 'Hire on Mostaql',
       github: 'GitHub',
       linkedin: 'LinkedIn'
@@ -177,6 +178,7 @@ const translations = {
       title: 'تواصل معي',
       text: 'هل لديك مشروع أو فكرة لعبة؟ يسعدني التواصل معك!',
       email: 'البريد الإلكتروني',
+      copied: 'تم النسخ',
       mostaql: 'وظّفني على مستقل',
       github: 'GitHub',
       linkedin: 'LinkedIn'
@@ -273,6 +275,7 @@ const translations = {
       title: 'Contattami',
       text: 'Hai un progetto o un\'idea per un gioco? Mi farebbe piacere sentirti!',
       email: 'Email',
+      copied: 'Copiato!',
       mostaql: 'Assumimi su Mostaql',
       github: 'GitHub',
       linkedin: 'LinkedIn'
